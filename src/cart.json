@@ -1,0 +1,16 @@
+[
+  {
+    "productName": "小米8",
+    "image": "http://img13.360buyimg.com/n7/jfs/t19912/33/927199229/297549/8c269ff0/5b0fca0fN8d5600df.jpg",
+    "number": 1,
+    "price": 58,
+    "isSelected": true
+  },
+  {
+    "productName": "小米8",
+    "image": "http://img13.360buyimg.com/n7/jfs/t19912/33/927199229/297549/8c269ff0/5b0fca0fN8d5600df.jpg",
+    "number": 1,
+    "price": 58,
+    "isSelected": false
+  }
+]
