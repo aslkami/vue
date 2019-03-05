@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/animate.css/animate.css">
+  <title>checkbox</title>
+  <style>
+    .active {
+      color: red;
+    }
+    .router-link-active {
+      color: rgb(8, 206, 58);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <router-link to="/home" tag="button">首页</router-link>
+    <router-link to="/list" tag="button">列表页</router-link>
+    <transition enter-active-class="animated fadein" leave-active-class="animated fadeout">
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
+    </transition>
+  </div>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+  <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</body>
+</html>
+
+<script>
+  // {name: 'xxx',  params: {c: 1 , a:2}}  //对象方式传参必须使用路由的name 而不是path
+  // $route.params.c  获取参数
+  // path: '/home/:c/:a'  :是占位符 可有可无
+  // 如果是点击一次按钮 获取数据 ajax, 则用watch属性  监听$route属性的变化
+  let home = {
+    template: '<div>home</div>',
+  }
+  let list = {
+    template: '<div>list</div>',
+    beforeDestroy(){
+      console.log(1111);
+    }
+  }
+  var app = new Vue({
+    el: '#app',
+    data: {
+    
+    },
+    router: new VueRouter({
+      // mode: 'history',
+      // linkActiveClass: 'active',
+      routes: [
+        {
+          path: '',
+          component: home
+        },
+        {
+          path: '/home',
+          name: 'myhome',
+          component: home
+        },
+        {
+          path: '/list',
+          component: list
+        },
+        {
+          path: '*',
+          redirect: '/home'
+        }
+      ]
+    })
+  })
+</script>

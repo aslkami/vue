@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <title>checkbox</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="radio" name="" id="" v-model="radio" value="home">home
+    <input type="radio" name="" id="" v-model="radio" value="list">list
+    <!-- keep-alive 可以缓存 从而不再创建销毁 -->
+    <!-- mounted 先加载子组件的 后加在父组件的 -->
+    <!-- 父组件操作子组件dom 用 this.$refs, mounted加载dom是异步的 -->
+    <keep-alive>
+      <component :is="radio"></component>
+    </keep-alive>
+  </div>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+</body>
+
+</html>
+
+<script>
+  let home = {
+    template: '<div>home</div>',
+    mounted() {
+      console.log('挂载home');
+    },
+    destroyed() {
+      console.log('销毁home');
+    }
+  }
+  let list = {
+    template: '<div>list</div>',
+    mounted() {
+      console.log('挂载list');
+    },
+    destroyed() {
+      console.log('销毁list');
+    }
+  }
+  var app = new Vue({
+    el: '#app',
+    data: {
+      radio: 'home'
+    },
+    components: {
+      home,
+      list
+    }
+  })
+</script>

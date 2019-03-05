@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <title>checkbox</title>
+</head>
+<body>
+  <div id="app">
+    <div ref='wrap'>
+      <div v-for="a in arr" ref='mydiv'>{{a}}</div>
+    </div>
+  </div>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+</body>
+</html>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      arr: [1,2,3]
+    },
+    // template: '<div></div>',   // 挂在的模板
+    mounted(){
+      // console.log(this.$refs.mydiv);
+      this.arr = [1,2,3,4]  // dom 渲染是异步的
+      this.$nextTick(()=>{  // 异步，等待dom加载完再执行
+        // console.log(app);
+        // console.log(this.$refs.wrap);
+        // console.log(this.$refs.wrap.children.length);
+      })
+      // debugger //断点
+    },
+    watch: {  // 深层监控写法
+      handler(){
+
+      },
+      deep: true
+    },
+    computed: {
+      set(){
+
+      },
+      get(){
+        
+      }
+    }
+  })
+
+  // app.$mount('#app')
+</script>
+
+

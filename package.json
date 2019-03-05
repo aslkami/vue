@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/aslkami/vue#readme",
   "dependencies": {
+    "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
-    "vue": "^2.6.5"
+    "vue": "^2.6.5",
+    "vue-router": "^3.0.2"
   }
 }
