@@ -1,23 +1,39 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <router-view></router-view>
+    <Tabbar></Tabbar>
   </div>
 </template>
 
 <script>
+import Tabbar from '@/base/Tabbar.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Tabbar
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  ul,li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  input, button {
+    -webkit-appearance: none;
+  }
+  .content {
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    width: 100%;
+    overflow: scroll;
+  }
 </style>
