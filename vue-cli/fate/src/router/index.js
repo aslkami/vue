@@ -12,15 +12,16 @@ export default new Router({
   routes: [
     {
       path: '*',
-      redirect: '/home'
+      redirect: '/home',
     },
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/home',
     },
     {
       path: '/home',
-      component: Home
+      component: Home,
+      meta: { keepAlive: true}  // 页面缓存
     },
     {
       path: '/add',
